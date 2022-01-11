@@ -63,7 +63,7 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
 }
 
 fun main() {
-    val res = segmentLength(-1, 3, -2, 4)
+    val res = segmentLength(3, 3, 0, 1)
     println(res)
 }
 
@@ -77,10 +77,10 @@ fun ageDescription(age: Int): String {
     var a = age
     if (age > 9) a %= 10
     return when (a) {
-        0, 5, 6, 7, 8, 9 -> "лет"
-        1 -> "год"
-        2, 3, 4 -> "года"
-        else -> "не существует"
+        0, 5, 6, 7, 8, 9 -> "$a лет"
+        1 -> "$a год"
+        2, 3, 4 -> "$a года"
+        else -> "$a не существует"
     }
 }
 
@@ -145,11 +145,11 @@ fun rookOrBishopThreatens(
     rookX: Int, rookY: Int,
     bishopX: Int, bishopY: Int
 ): Int {
-    return if (kingX != rookX && kingY != rookY && kingX - kingY != bishopX - bishopY) {
+    return if (kingX != rookX && kingY != rookY && (kingX - kingY != bishopX - bishopY && kingX + kingY != bishopX + bishopY)) {
         0
-    } else if ((kingX == rookX || kingY == rookY) && kingX - kingY != bishopX - bishopY) {
+    } else if ((kingX == rookX || kingY == rookY) && (kingX - kingY != bishopX - bishopY && kingX + kingY != bishopX + bishopY)) {
         1
-    } else if ((kingX != rookX && kingY != rookY) && kingX - kingY == bishopX - bishopY) {
+    } else if ((kingX != rookX && kingY != rookY) && (kingX - kingY == bishopX - bishopY || kingX + kingY == bishopX + bishopY)) {
         2
     } else {
         3
@@ -196,8 +196,10 @@ fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
             d - c
         } else if (a < c && b > c && b < d) {
             b - c
-        } else if (a > c && b > d && c < d) {
+        } else if (a > c && b > d && d >= a) {
             d - a
+        } else if (a > d) {
+            -1
         } else -1
     } else -1
-}
+} // 3 3 0 1
