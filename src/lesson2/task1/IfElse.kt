@@ -83,7 +83,7 @@ fun ageDescription(age: Int): String {
         return when (age) {
             0, 5, 6, 7, 8, 9 -> "$age лет"
             1 -> "$age год"
-            2, 3, 4 -> "$age года "
+            2, 3, 4 -> "$age года"
             else -> "$age не существует"
         }
     } else {
