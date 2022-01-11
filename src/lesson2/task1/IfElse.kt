@@ -66,7 +66,7 @@ fun main() {
     val res = segmentLength(-3, 0, 0, 1)
     println(res)
 
-    val res1 = ageDescription(-99)
+    val res1 = ageDescription(131)
     println(res1)
 }
 
@@ -84,6 +84,13 @@ fun ageDescription(age: Int): String {
             0, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 -> "$age лет"
             1 -> "$age год"
             2, 3, 4 -> "$age года"
+            else -> "$age не существует"
+        }
+    } else if (age in 100..114) {
+        return when (age) {
+            100, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114 -> "$age лет"
+            101 -> "$age год"
+            102, 103, 104 -> "$age года"
             else -> "$age не существует"
         }
     } else {
