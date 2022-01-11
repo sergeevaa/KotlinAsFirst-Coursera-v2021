@@ -53,7 +53,7 @@ fun quadraticRootProduct(a: Double, b: Double, c: Double): Double {
  * Пример главной функции
  */
 fun main() {
-    val sec = seconds(8, 20, 35)
+    val sec = seconds(9, 20, 35)
     println(sec)
 }
 
