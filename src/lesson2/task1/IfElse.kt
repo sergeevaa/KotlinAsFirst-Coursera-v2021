@@ -78,13 +78,22 @@ fun main() {
  */
 fun ageDescription(age: Int): String {
     var a = age
-    if (age > 9) a %= 10
     if (age < 0 || age > 200) return "null"
-    return when (a) {
-        0, 5, 6, 7, 8, 9 -> "$age лет"
-        1 -> "$age год"
-        2, 3, 4 -> "$age года"
-        else -> "$age не существует"
+    if (age <= 9) {
+        return when (age) {
+            0, 5, 6, 7, 8, 9 -> "$age лет"
+            1 -> "$age год"
+            2, 3, 4 -> "$age года "
+            else -> "$age не существует"
+        }
+    } else {
+        a %= 10
+        return when (a) {
+            0, 5, 6, 7, 8, 9 -> "$age лет"
+            1 -> "$age год"
+            2, 3, 4 -> "$age лет"
+            else -> "$age не существует"
+        }
     }
 }
 
