@@ -17,7 +17,7 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
 
 
 fun main() {
-    val res = brickPasses(500, 4, 40, 40, 40)
+    val res = brickPasses(1, 2, 2, 1, 2)
     println(res)
 }
 
@@ -97,4 +97,4 @@ fun circleInside(
  * Вернуть true, если кирпич пройдёт
  */
 fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean =
-    ((a <= r && b <= r) || (b <= r && a <= s) || (c <= r && b <= r) || (b <= r && c <= s) || (a <= r && c <= r) || (c <= r && a <= s))
+    ((a <= r && b <= s) || (b <= r && a <= s) || (c <= r && b <= s) || (b <= r && c <= s) || (a <= r && c <= s) || (c <= r && a <= s))
