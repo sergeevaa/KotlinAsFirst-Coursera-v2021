@@ -17,7 +17,7 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
 
 
 fun main() {
-    val res = brickPasses(600, 4, 40, 40, 40)
+    val res = brickPasses(500, 4, 40, 40, 40)
     println(res)
 }
 
